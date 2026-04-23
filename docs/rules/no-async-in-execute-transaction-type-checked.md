@@ -25,7 +25,9 @@ project.executeTransaction((compoundAction) => {
 
 // .executeTransaction() on a non-premierepro object -- not flagged
 const db = {
-  executeTransaction(cb: (tx: any) => void, msg: string) { cb({}); },
+  executeTransaction(cb: (tx: any) => void, msg: string) {
+    cb({});
+  },
 };
 db.executeTransaction(async (tx) => {
   await doWork();

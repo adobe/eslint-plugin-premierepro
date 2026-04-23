@@ -21,7 +21,8 @@ export default createRule({
   meta: {
     type: "suggestion",
     docs: {
-      description: "Suggest providing an undo string when calling premierepro Project.executeTransaction()",
+      description:
+        "Suggest providing an undo string when calling premierepro Project.executeTransaction()",
       recommended: true,
       requiresTypeChecking: true,
     },

@@ -27,7 +27,8 @@ export default createRule<[], MessageIds>({
   meta: {
     type: "suggestion",
     docs: {
-      description: "Recommend wrapping executeTransaction() in lockedAccess() for clearer intent and better code organization",
+      description:
+        "Recommend wrapping executeTransaction() in lockedAccess() for clearer intent and better code organization",
       recommended: false,
       requiresTypeChecking: false,
     },

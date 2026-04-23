@@ -5,6 +5,7 @@ Disallow action objects from escaping the lock scope they were created in (`lock
 ## Rule Details
 
 Actions created via `create*Action()` are only valid within the lock scope where they were created, either:
+
 - Inside a `lockedAccess()` callback, or
 - Inside an `executeTransaction()` callback
 
@@ -91,6 +92,7 @@ This rule uses **conservative scope analysis** and will flag any action value as
 This intentionally aggressive approach prevents accidental misuse—the variable declaration itself creates an escape route, and even if your current code uses it safely, future maintainers might not.
 
 **If you're confident a pattern is safe**, you can:
+
 - Disable the rule inline: `// eslint-disable-next-line @adobe/premierepro/no-action-scope-escape`
 - Disable it for a file or project if your usage pattern differs
 - Consider restructuring to declare the variable inside the lock scope when possible
@@ -102,4 +104,3 @@ The rule uses **static scope analysis** — it checks whether the assignment tar
 - **Simple assignments** (`action = create*Action()`) and **property assignments** (`obj.prop = create*Action()`) are detected.
 - **Indirect escapes**--such as passing actions through function calls, `Array.push()`, `Map.set()`, or returning from the callback--are not currently detected. These patterns are less common but could be added in future versions.
 - Actions created **outside** any lock context are caught by the [`require-action-lock-scope`](./require-action-lock-scope.md) rule instead.
-

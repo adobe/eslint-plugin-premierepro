@@ -41,7 +41,8 @@ export default createRule<[], MessageIds>({
   meta: {
     type: "problem",
     docs: {
-      description: "Disallow async operations inside premierepro Project.executeTransaction() callbacks",
+      description:
+        "Disallow async operations inside premierepro Project.executeTransaction() callbacks",
       recommended: true,
       requiresTypeChecking: true,
     },

@@ -100,9 +100,9 @@ The `buildEdit()` example in the "Incorrect" section above may look safe on firs
 ```ts
 let edit: Action | undefined;
 project.lockedAccess(() => {
-  edit = buildEdit();  // ← Flagged: variable declared outside lock scope
+  edit = buildEdit(); // ← Flagged: variable declared outside lock scope
   project.executeTransaction((ca) => {
-    ca.addAction(edit);  // ← Used safely here
+    ca.addAction(edit); // ← Used safely here
   });
 });
 ```
@@ -110,6 +110,7 @@ project.lockedAccess(() => {
 This is flagged because `edit` is declared outside the lock—even though in this isolated code, it's never used outside a lock. However, the variable declaration creates a footgun for future changes.
 
 **If you're confident a pattern is safe**, you can:
+
 - Disable the rule inline: `// eslint-disable-next-line @adobe/premierepro/no-action-scope-escape-type-checked`
 - Disable it for a file or project if your usage pattern differs
 - Consider restructuring to declare the variable inside the lock scope when possible
