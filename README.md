@@ -25,7 +25,9 @@ If your project uses TypeScript with typed linting, use `recommended-type-checke
 // eslint.config.js
 import premierepro from "@adobe/eslint-plugin-premierepro";
 
-export default [premierepro.configs.recommended];
+export default [
+  premierepro.configs.recommended
+];
 ```
 
 **Type-checked** (requires typed linting):
@@ -37,7 +39,16 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   ...tseslint.configs.recommended,
-  premierepro.configs["recommended-type-checked"]
+  premierepro.configs.recommendedTypeChecked,
+  // Needed to enable TypeScript's type checking service, see:
+  // https://typescript-eslint.io/getting-started/typed-linting
+  {
+    languageOptions: {
+      parserOptions: {
+        projectService: true
+      }
+    },
+  }
 );
 ```
 
