@@ -1,0 +1,71 @@
+{
+  "name": "@adobe/eslint-plugin-premierepro",
+  "version": "26.2.0",
+  "description": "ESLint rules for Adobe Premiere Pro UXP API usage",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/adobe/eslint-plugin-premierepro/issues"
+  },
+  "homepage": "https://github.com/adobe/eslint-plugin-premierepro#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adobe/eslint-plugin-premierepro.git"
+  },
+  "projects": [
+    "https://adobe.io/premiere-pro/uxp"
+  ],
+  "keywords": [
+    "premiere",
+    "premierepro",
+    "uxp",
+    "eslint",
+    "lint",
+    "3p"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "build:watch": "tsc -p tsconfig.build.json --watch",
+    "format": "prettier --write '**/*.{js,ts,json,md}'",
+    "format:check": "prettier --check '**/*.{js,ts,json,md}'",
+    "lint": "eslint",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tests"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/parser": ">=8.0.0",
+    "eslint": ">=8.0.0",
+    "typescript": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@typescript-eslint/parser": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@adobe/premierepro": "^26.2.0",
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^24.12.2",
+    "@typescript-eslint/parser": "^8.58.1",
+    "@typescript-eslint/rule-tester": "^8.58.1",
+    "eslint": "^9.0.0",
+    "eslint-plugin-eslint-plugin": "^7.3.2",
+    "prettier": "^3.8.1",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.59.0",
+    "vitest": "^4.1.3"
+  },
+  "dependencies": {
+    "@typescript-eslint/utils": "^8.58.1"
+  }
+}
