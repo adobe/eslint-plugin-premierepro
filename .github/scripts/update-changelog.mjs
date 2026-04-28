@@ -96,7 +96,9 @@ switch (RELEASE_TYPE) {
     let lastTag = "";
     try {
       lastTag = execSync("git describe --tags --abbrev=0", { encoding: "utf8" }).trim();
-    } catch {}
+    } catch {
+      // No tags found, will use HEAD
+    }
 
     const commits = getCommits(lastTag);
     insertEntry(`## ${VERSION} (${date})\n\n${formatCommits(commits)}`);
@@ -120,9 +122,11 @@ switch (RELEASE_TYPE) {
     let lastTag = "";
     try {
       lastTag = execSync("git describe --tags --abbrev=0", { encoding: "utf8" }).trim();
-    } catch {}
+    } catch {
+      // No tags found, will use HEAD
+    }
 
-    const commits = getCommits(lastTag).filter(({ msg }) => !/^(?:chore|build|ci)[\(:]/.test(msg));
+    const commits = getCommits(lastTag).filter(({ msg }) => !/^(?:chore|build|ci)[\\(:]/.test(msg));
 
     const entries = commits.map(
       ({ msg, shortHash, fullHash }) => `* ${msg} ([${shortHash}](${REPO_URL}/commit/${fullHash}))`
