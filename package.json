@@ -35,7 +35,7 @@
     "build:watch": "tsc -p tsconfig.build.json --watch",
     "format": "prettier --write '**/*.{js,ts,json}'",
     "format:check": "prettier --check '**/*.{js,ts,json}'",
-    "lint": "eslint",
+    "lint": "eslint . --report-unused-disable-directives --ext .ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit && tsc --noEmit -p tests"
   },

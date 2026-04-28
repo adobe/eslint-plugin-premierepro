@@ -18,18 +18,19 @@ import eslintPlugin from 'eslint-plugin-eslint-plugin'
 import tseslint from 'typescript-eslint';
 
 export default defineConfig(
-    { ignores: ["dist"] },
-    eslint.configs.recommended,
-    tseslint.configs.recommendedTypeChecked,
-    eslintPlugin.configs.recommended,
-    {
-        languageOptions: {
-            parserOptions: {
-                projectService: {
-                    allowDefaultProject: ["*.config.*"],
-                    defaultProject: "tsconfig.json"
-                },
-            },
+  { ignores: ["dist"] },
+  eslint.configs.recommended,
+  tseslint.configs.recommendedTypeChecked,
+  eslintPlugin.configs.recommended,
+  {
+    files: ["src/**/*.ts", "tests/**/*.ts"],
+    languageOptions: {
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: ["*.config.*"],
+          defaultProject: "tsconfig.json"
         },
+      },
     },
+  },
 );
