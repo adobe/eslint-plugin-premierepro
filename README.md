@@ -15,7 +15,7 @@ This plugin provides two tiers of rules:
 - **Syntactic rules** — work in any JavaScript or TypeScript project. They use naming conventions and AST patterns to detect issues.
 - **Type-checked rules** — require [typed linting](https://typescript-eslint.io/getting-started/typed-linting/) with `@typescript-eslint/parser` and a `tsconfig.json`. They use TypeScript's type checker for more accurate detection, eliminating false positives and catching patterns (like wrapper functions) that syntactic rules cannot.
 
-If your project uses TypeScript with typed linting, use `recommended-type-checked`. Otherwise, use `recommended`.
+If your project uses TypeScript with typed linting, use `recommendedTypeChecked`. Otherwise, use `recommended`.
 
 ### Flat config (ESLint >= 9)
 
@@ -103,7 +103,7 @@ These rules require [typed linting](https://typescript-eslint.io/getting-started
 ### Which should I use?
 
 - **JavaScript project or no typed linting** — use `recommended` (syntactic rules).
-- **TypeScript project with typed linting** — use `recommended-type-checked` (type-checked rules). These replace the syntactic rules entirely; you do not need both.
+- **TypeScript project with typed linting** — use `recommendedTypeChecked` (type-checked rules). These replace the syntactic rules entirely; you do not need both.
 - **Migrating** — you can enable both syntactic and type-checked rules during migration. They will not conflict, though you may see duplicate reports for the same issue.
 
 ## Configs
@@ -111,4 +111,4 @@ These rules require [typed linting](https://typescript-eslint.io/getting-started
 | Config                     | Description                                                        |
 | -------------------------- | ------------------------------------------------------------------ |
 | `recommended`              | Syntactic rules with sensible defaults. Works in any project.      |
-| `recommended-type-checked` | Type-checked rules with sensible defaults. Requires typed linting. |
+| `recommendedTypeChecked`   | Type-checked rules with sensible defaults. Requires typed linting. |
