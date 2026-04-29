@@ -68,8 +68,12 @@ function isGreater(a: string, b: string): boolean {
   for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
     const av = pa[i] ?? 0;
     const bv = pb[i] ?? 0;
-    if (av > bv) return true;
-    if (av < bv) return false;
+    if (av > bv) {
+      return true;
+    }
+    if (av < bv) {
+      return false;
+    }
   }
   return false; // equal
 }
