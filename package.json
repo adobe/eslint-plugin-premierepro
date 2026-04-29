@@ -35,11 +35,12 @@
     "build:watch": "tsc -p tsconfig.build.json --watch",
     "format": "prettier --write '**/*.{js,ts,json}'",
     "format:check": "prettier --check '**/*.{js,ts,json}'",
-    "lint": "eslint",
+    "lint": "eslint . --report-unused-disable-directives --ext .ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit && tsc --noEmit -p tests"
   },
   "peerDependencies": {
+    "@adobe/premierepro": "~26.2.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
     "typescript": ">=5.0.0"
@@ -53,7 +54,7 @@
     }
   },
   "devDependencies": {
-    "@adobe/premierepro": "^26.2.0",
+    "@adobe/premierepro": "26.2.0",
     "@eslint/js": "^9.0.0",
     "@types/node": "^24.12.2",
     "@typescript-eslint/parser": "^8.58.1",

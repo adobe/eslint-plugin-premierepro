@@ -11,5 +11,5 @@
     "noEmit": true,
     "types": ["@adobe/premierepro", "@types/node"]
   },
-  "include": ["src/**/*.ts"]
+  "include": [".github/scripts/**/*.ts", "src/**/*.ts", "tests/**/*.ts"]
 }
