@@ -26,8 +26,8 @@
  *   DIST_TAG     - the npm dist-tag being updated (e.g. 'beta', 'latest')
  */
 
-import { execSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { execSync } from "node:child_process";
+import { readFileSync } from "node:fs";
 
 const { DIST_TAG, VERSION } = process.env;
 
@@ -40,7 +40,7 @@ if (!VERSION) {
   process.exit(1);
 }
 
-const packageJson = JSON.parse(readFileSync('package.json', 'utf8')) as { name: string };
+const packageJson = JSON.parse(readFileSync("package.json", "utf8")) as { name: string };
 const packageName = packageJson.name;
 
 /**
@@ -78,7 +78,7 @@ function isGreater(a: string, b: string): boolean {
 let currentPublished: string | null = null;
 try {
   const raw = execSync(`npm view ${packageName} dist-tags.${DIST_TAG} 2>/dev/null`, {
-    encoding: 'utf8',
+    encoding: "utf8",
   }).trim();
   currentPublished = raw || null;
 } catch {

@@ -47,7 +47,11 @@ function insertEntry(entry: string) {
   const insertPoint = content.indexOf("\n## ");
   const newContent =
     insertPoint !== -1
-      ? content.slice(0, insertPoint).trimEnd() + "\n\n" + entry.trimEnd() + "\n\n" + content.slice(insertPoint + 1)
+      ? content.slice(0, insertPoint).trimEnd() +
+        "\n\n" +
+        entry.trimEnd() +
+        "\n\n" +
+        content.slice(insertPoint + 1)
       : content.trimEnd() + "\n\n" + entry.trimEnd() + "\n\n";
   writeFileSync("CHANGELOG.md", newContent);
   console.log(`Updated CHANGELOG.md for ${VERSION}`);

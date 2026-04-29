@@ -66,7 +66,9 @@ run(`npm version ${nextBeta} --no-git-tag-version`);
 // Pin @adobe/premierepro to the just-released stable. The new beta version
 // doesn't exist on npm yet, so we use the stable as a placeholder. The first
 // beta prepare-release will update this to the correct beta pin.
-run(`npm install "@adobe/premierepro@${currentStable}" --save-dev --save-exact --package-lock-only`);
+run(
+  `npm install "@adobe/premierepro@${currentStable}" --save-dev --save-exact --package-lock-only`
+);
 run(`npm pkg set "peerDependencies.@adobe/premierepro=${peerRange}"`);
 
 run(`git checkout -b "${branch}"`);
