@@ -27,8 +27,8 @@
  *   REPO_URL     - GitHub repository URL for commit links
  */
 
-import { readFileSync, writeFileSync } from "node:fs";
 import { execSync } from "node:child_process";
+import { readFileSync, writeFileSync } from "node:fs";
 
 const {
   RELEASE_TYPE,
@@ -39,7 +39,7 @@ const {
 const date = new Date().toISOString().split("T")[0];
 
 /** Inserts a new CHANGELOG entry after the `# Changelog` header. */
-function insertEntry(entry) {
+function insertEntry(entry: string) {
   const content = readFileSync("CHANGELOG.md", "utf8");
   // indexOf finds the \n immediately before the first "## " heading.
   // Trim trailing whitespace from the before-slice so we fully control spacing,
@@ -53,8 +53,14 @@ function insertEntry(entry) {
   console.log(`Updated CHANGELOG.md for ${VERSION}`);
 }
 
+interface Commit {
+  msg: string;
+  shortHash: string;
+  fullHash: string;
+}
+
 /** Returns commits between fromTag (exclusive) and HEAD, excluding merge commits. */
-function getCommits(fromTag) {
+function getCommits(fromTag?: string): Commit[] {
   const range = fromTag ? `${fromTag}..HEAD` : "HEAD";
   const log = execSync(`git log ${range} --pretty=format:"%s|%H" --no-merges`, {
     encoding: "utf8",
@@ -73,19 +79,38 @@ function getCommits(fromTag) {
 }
 
 /** Groups commits by conventional type and formats as markdown. */
-function formatCommits(commits) {
+function formatCommits(commits: Commit[]): string {
   const features = [];
   const fixes = [];
+  const chores = [];
+  const refactors = [];
+  const tests = [];
+  const docs = [];
 
   for (const { msg, shortHash, fullHash } of commits) {
     const link = `([${shortHash}](${REPO_URL}/commit/${fullHash}))`;
-    if (msg.startsWith("feat")) features.push(`* ${msg} ${link}`);
-    else if (msg.startsWith("fix")) fixes.push(`* ${msg} ${link}`);
+    if (msg.startsWith("feat")) {
+      features.push(`* ${msg} ${link}`);
+    } else if (msg.startsWith("fix")) {
+      fixes.push(`* ${msg} ${link}`);
+    } else if (msg.startsWith("chore")) {
+      chores.push(`* ${msg} ${link}`);
+    } else if (msg.startsWith("refactor")) {
+      refactors.push(`* ${msg} ${link}`);
+    } else if (msg.startsWith("test")) {
+      tests.push(`* ${msg} ${link}`);
+    } else if (msg.startsWith("docs")) {
+      docs.push(`* ${msg} ${link}`);
+    }
   }
 
   let out = "";
   if (features.length) out += `### Features\n\n${features.join("\n")}\n\n`;
   if (fixes.length) out += `### Bug Fixes\n\n${fixes.join("\n")}\n\n`;
+  if (chores.length) out += `### Miscellaneous Chores\n\n${chores.join("\n")}\n\n`;
+  if (refactors.length) out += `### Refactorings\n\n${refactors.join("\n")}\n\n`;
+  if (tests.length) out += `### Tests\n\n${tests.join("\n")}\n\n`;
+  if (docs.length) out += `### Documentation\n\n${docs.join("\n")}\n\n`;
   return out || "No notable changes.\n\n";
 }
 

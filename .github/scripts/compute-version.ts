@@ -24,21 +24,31 @@
 
 import { readFileSync, appendFileSync } from "node:fs";
 
-const { RELEASE_TYPE, BUILD_NUMBER, GITHUB_OUTPUT } = process.env;
-
-function fail(message) {
+function fail(message: string): void {
   console.error(`::error::${message}`);
   process.exit(1);
 }
 
-function setOutput(key, value) {
+const { BUILD_NUMBER, GITHUB_OUTPUT, RELEASE_TYPE } = process.env;
+
+if (!RELEASE_TYPE) {
+  fail("::error::RELEASE_TYPE is required");
+}
+if (!GITHUB_OUTPUT) {
+  fail("::error::GITHUB_OUTPUT is required");
+}
+if (!BUILD_NUMBER && RELEASE_TYPE === "beta") {
+  fail("::error::BUILD_NUMBER is required for beta releases");
+}
+
+function setOutput(key: string, value: string): void {
   if (GITHUB_OUTPUT) {
     appendFileSync(GITHUB_OUTPUT, `${key}=${value}\n`);
   }
   console.log(`  ${key} = ${value}`);
 }
 
-const pkg = JSON.parse(readFileSync("package.json", "utf8"));
+const pkg = JSON.parse(readFileSync("package.json", "utf8")) as { version: string };
 const current = pkg.version;
 
 console.log(`Current version: ${current}`);
@@ -52,8 +62,15 @@ switch (RELEASE_TYPE) {
           `Is this the right branch? main should be on a beta version during active development.`
       );
     }
+
     const base = current.replace(/-beta\.\d+$/, "");
-    const currentN = parseInt(current.match(/beta\.(\d+)$/)[1], 10);
+    const betaMatch = current.match(/beta\.(\d+)$/);
+    if (betaMatch == null) {
+      fail(`Current version '${current}' is not a beta version (expected X.Y.Z-beta.N).`);
+      break;
+    }
+
+    const currentN = parseInt(betaMatch[1], 10);
     const nextN = BUILD_NUMBER ? parseInt(BUILD_NUMBER, 10) : currentN + 1;
     if (nextN <= currentN) {
       fail(

@@ -41,7 +41,7 @@ if (!NEXT_CYCLE) {
 }
 
 // The current package.json is at the just-released stable version (e.g. 26.3.0).
-const pkg = JSON.parse(readFileSync("package.json", "utf8"));
+const pkg = JSON.parse(readFileSync("package.json", "utf8")) as { version: string };
 const currentStable = pkg.version;
 
 const nextBeta = `${NEXT_CYCLE}-beta.0`;
@@ -52,7 +52,7 @@ const branch = `release-prep/${nextBeta}`;
 const stableBase = currentStable.replace(/\.\d+$/, ".0");
 const peerRange = `~${stableBase}`;
 
-function run(cmd) {
+function run(cmd: string): string {
   console.log(`$ ${cmd}`);
   return execSync(cmd, { encoding: "utf8", stdio: ["pipe", "inherit", "inherit"] });
 }

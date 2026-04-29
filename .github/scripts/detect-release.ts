@@ -32,10 +32,10 @@
  *   GITHUB_OUTPUT - set automatically by GitHub Actions
  */
 
-import { readFileSync, appendFileSync } from "node:fs";
 import { execSync } from "node:child_process";
+import { readFileSync, appendFileSync } from "node:fs";
 
-function setOutput(key, value) {
+function setOutput(key: string, value: string): void {
   if (process.env.GITHUB_OUTPUT) {
     appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}\n`);
   }
@@ -50,14 +50,15 @@ if (!commitMsg.startsWith("chore: release ")) {
   process.exit(0);
 }
 
-const pkg = JSON.parse(readFileSync("package.json", "utf8"));
+const pkg = JSON.parse(readFileSync("package.json", "utf8")) as { version: string };
 const version = pkg.version;
 const branch = (process.env.GITHUB_REF ?? "").replace("refs/heads/", "");
 
 const isBeta = /-beta\.\d+$/.test(version);
 const isReleaseBranch = branch.startsWith("release/");
 
-let type, distTag;
+let type: string;
+let distTag: string;
 if (isBeta) {
   type = "beta";
   distTag = "beta";

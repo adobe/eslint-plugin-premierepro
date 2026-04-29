@@ -55,7 +55,7 @@ jobs:
         env:
           RELEASE_TYPE: ${{ inputs.type }}
           BUILD_NUMBER: ${{ inputs.build_number }}
-        run: node .github/scripts/compute-version.mjs
+        run: node .github/scripts/compute-version.ts
 
       - name: Update package.json and package-lock.json
         run: npm version ${{ steps.version.outputs.version }} --no-git-tag-version
@@ -96,13 +96,13 @@ jobs:
         env:
           RELEASE_TYPE: ${{ inputs.type }}
           VERSION: ${{ steps.version.outputs.version }}
-        run: node .github/scripts/update-changelog.mjs
+        run: node .github/scripts/update-changelog.ts
 
       - name: Extract release notes for PR body
         env:
           VERSION: ${{ steps.version.outputs.version }}
           OUTPUT_FILE: /tmp/release-notes.md
-        run: node .github/scripts/extract-release-notes.mjs
+        run: node .github/scripts/extract-release-notes.ts
 
       - name: Open release PR
         env:

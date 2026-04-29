@@ -22,9 +22,14 @@
  *   OUTPUT_FILE - path to write the extracted notes (default: /tmp/release-notes.md)
  */
 
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync } from "node:fs";
 
-const { VERSION, OUTPUT_FILE = "/tmp/release-notes.md" } = process.env;
+const { OUTPUT_FILE = "/tmp/release-notes.md", VERSION } = process.env;
+
+if (!VERSION) {
+  console.error("::error::VERSION is required");
+  process.exit(1);
+}
 
 const content = readFileSync("CHANGELOG.md", "utf8");
 

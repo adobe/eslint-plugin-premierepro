@@ -24,15 +24,24 @@
  * Environment variables:
  *   VERSION      - the version about to be published (e.g. '26.3.0-beta.20')
  *   DIST_TAG     - the npm dist-tag being updated (e.g. 'beta', 'latest')
- *   PACKAGE_NAME - npm package name (defaults to name in package.json)
  */
 
-import { readFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 
-const { VERSION, DIST_TAG } = process.env;
-const PACKAGE_NAME =
-  process.env.PACKAGE_NAME ?? JSON.parse(readFileSync('package.json', 'utf8')).name;
+const { DIST_TAG, VERSION } = process.env;
+
+if (!DIST_TAG) {
+  console.error("::error::DIST_TAG is required");
+  process.exit(1);
+}
+if (!VERSION) {
+  console.error("::error::VERSION is required");
+  process.exit(1);
+}
+
+const packageJson = JSON.parse(readFileSync('package.json', 'utf8')) as { name: string };
+const packageName = packageJson.name;
 
 /**
  * Parses a version string into a comparable tuple.
@@ -40,7 +49,7 @@ const PACKAGE_NAME =
  *   26.3.0-beta.19  →  [26, 3, 0, 19]
  *   26.3.0          →  [26, 3, 0, Infinity]
  */
-function parseVersion(v) {
+function parseVersion(v: string): number[] {
   const beta = v.match(/^(\d+)\.(\d+)\.(\d+)-beta\.(\d+)$/);
   if (beta) {
     return beta.slice(1).map(Number);
@@ -52,7 +61,7 @@ function parseVersion(v) {
   throw new Error(`Unrecognized version format: "${v}"`);
 }
 
-function isGreater(a, b) {
+function isGreater(a: string, b: string): boolean {
   const pa = parseVersion(a);
   const pb = parseVersion(b);
 
@@ -66,9 +75,9 @@ function isGreater(a, b) {
 }
 
 // Query npm for the current version at this dist-tag.
-let currentPublished;
+let currentPublished: string | null = null;
 try {
-  const raw = execSync(`npm view ${PACKAGE_NAME} dist-tags.${DIST_TAG} 2>/dev/null`, {
+  const raw = execSync(`npm view ${packageName} dist-tags.${DIST_TAG} 2>/dev/null`, {
     encoding: 'utf8',
   }).trim();
   currentPublished = raw || null;

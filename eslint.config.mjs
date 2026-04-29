@@ -23,7 +23,6 @@ export default defineConfig(
   tseslint.configs.recommendedTypeChecked,
   eslintPlugin.configs.recommended,
   {
-    files: ["src/**/*.ts", "tests/**/*.ts"],
     languageOptions: {
       parserOptions: {
         projectService: {

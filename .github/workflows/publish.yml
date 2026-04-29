@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - id: detect
-        run: node .github/scripts/detect-release.mjs
+        run: node .github/scripts/detect-release.ts
 
   publish:
     name: Publish to npm
@@ -68,7 +68,7 @@ jobs:
         env:
           VERSION: ${{ needs.detect.outputs.version }}
           DIST_TAG: ${{ needs.detect.outputs.dist_tag }}
-        run: node .github/scripts/check-version-order.mjs
+        run: node .github/scripts/check-version-order.ts
 
       - name: Publish to npm
         env:
@@ -79,7 +79,7 @@ jobs:
       - name: Extract release notes from CHANGELOG
         env:
           VERSION: ${{ needs.detect.outputs.version }}
-        run: node .github/scripts/extract-release-notes.mjs
+        run: node .github/scripts/extract-release-notes.ts
 
       - name: Create GitHub release
         env:
@@ -110,4 +110,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEXT_CYCLE: ${{ needs.detect.outputs.next_cycle }}
-        run: node .github/scripts/open-next-cycle.mjs
+        run: node .github/scripts/open-next-cycle.ts
