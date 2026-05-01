@@ -1,5 +1,12 @@
 # Changelog
 
+## 26.3.0-beta.54 (2026-05-01)
+
+### Miscellaneous Chores
+
+* chore: begin 26.3.0-beta cycle (#7) ([1f1aa60](https://github.com/adobe/eslint-plugin-premierepro/commit/1f1aa60198dc7994dfe373f3184f7097bbbd265b))
+* chore: Additional doc cleanup (#3) ([c4b29f4](https://github.com/adobe/eslint-plugin-premierepro/commit/c4b29f4adb40f54457be58b223ef55adfba088fd))
+
 ## 26.2.0 (2026-04-23)
 
 

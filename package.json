@@ -1,6 +1,6 @@
 {
   "name": "@adobe/eslint-plugin-premierepro",
-  "version": "26.3.0-beta.0",
+  "version": "26.3.0-beta.54",
   "description": "ESLint rules for Adobe Premiere Pro UXP API usage",
   "license": "Apache-2.0",
   "bugs": {
