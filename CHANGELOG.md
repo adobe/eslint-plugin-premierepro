@@ -1,5 +1,9 @@
 # Changelog
 
+## 26.3.0-beta.67 (2026-05-07)
+
+No notable changes.
+
 ## 26.3.0-beta.65 (2026-05-05)
 
 No notable changes.
