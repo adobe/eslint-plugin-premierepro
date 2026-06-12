@@ -89,8 +89,10 @@ jobs:
 
           echo "Pinning @adobe/premierepro: devDependency=${TYPES_VERSION}, peerDependency=${PEER_RANGE}"
 
-          npm install "@adobe/premierepro@${TYPES_VERSION}" --save-dev --save-exact --package-lock-only
+          # Set peerDependency in package.json first so npm install writes the same
+          # range into package-lock.json's root packages[""] entry.
           npm pkg set "peerDependencies.@adobe/premierepro=${PEER_RANGE}"
+          npm install "@adobe/premierepro@${TYPES_VERSION}" --save-dev --save-exact --package-lock-only
 
       - name: Update CHANGELOG
         env:
