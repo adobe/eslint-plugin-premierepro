@@ -84,6 +84,7 @@ These rules work in any project without type information. They use naming conven
 | [`no-async-in-execute-transaction`](docs/rules/no-async-in-execute-transaction.md) | Disallow async operations inside `executeTransaction()` callbacks                                       |    error    |
 | [`no-action-scope-escape`](docs/rules/no-action-scope-escape.md)                   | Disallow action objects from escaping their lock scope                                                  |    error    |
 | [`no-async-in-empty-selection`](docs/rules/no-async-in-empty-selection.md)         | Disallow async operations inside `TrackItemSelection.createEmptySelection()` callbacks                  |    error    |
+| [`no-empty-selection-escape`](docs/rules/no-empty-selection-escape.md)             | Disallow the `createEmptySelection()` callback parameter from escaping the callback                     |    error    |
 | [`prefer-locked-access-wrapper`](docs/rules/prefer-locked-access-wrapper.md)       | Recommend wrapping `executeTransaction()` in `lockedAccess()`                                           |    warn     |
 | [`prefer-undo-string`](docs/rules/prefer-undo-string.md)                           | Suggest providing a descriptive undo string for `executeTransaction()`                                  |    warn     |
 
