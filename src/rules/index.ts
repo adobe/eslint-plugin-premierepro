@@ -17,6 +17,7 @@ import noAsyncInLockedAccess from "./no-async-in-locked-access";
 import noAsyncInLockedAccessTypeChecked from "./no-async-in-locked-access-type-checked";
 import noAsyncInExecuteTransaction from "./no-async-in-execute-transaction";
 import noAsyncInExecuteTransactionTypeChecked from "./no-async-in-execute-transaction-type-checked";
+import noAsyncInEmptySelection from "./no-async-in-empty-selection";
 import preferLockedAccessWrapper from "./prefer-locked-access-wrapper";
 import preferLockedAccessWrapperTypeChecked from "./prefer-locked-access-wrapper-type-checked";
 import preferUndoString from "./prefer-undo-string";
@@ -30,6 +31,7 @@ export const syntacticRules = {
   "no-action-scope-escape": noActionScopeEscape,
   "no-async-in-locked-access": noAsyncInLockedAccess,
   "no-async-in-execute-transaction": noAsyncInExecuteTransaction,
+  "no-async-in-empty-selection": noAsyncInEmptySelection,
   "prefer-locked-access-wrapper": preferLockedAccessWrapper,
   "prefer-undo-string": preferUndoString,
   "require-execute-transaction": requireExecuteTransaction,

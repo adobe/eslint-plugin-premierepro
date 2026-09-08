@@ -42,6 +42,7 @@ const recommendedConfig = {
     "@adobe/premierepro/no-action-scope-escape": "error",
     "@adobe/premierepro/no-async-in-locked-access": "error",
     "@adobe/premierepro/no-async-in-execute-transaction": "error",
+    "@adobe/premierepro/no-async-in-empty-selection": "error",
     "@adobe/premierepro/prefer-locked-access-wrapper": "warn",
     "@adobe/premierepro/prefer-undo-string": "warn",
     "@adobe/premierepro/require-execute-transaction": "error",
