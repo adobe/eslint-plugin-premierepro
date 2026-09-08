@@ -20,6 +20,7 @@ import noAsyncInExecuteTransactionTypeChecked from "./no-async-in-execute-transa
 import noAsyncInEmptySelection from "./no-async-in-empty-selection";
 import noAsyncInEmptySelectionTypeChecked from "./no-async-in-empty-selection-type-checked";
 import noEmptySelectionEscape from "./no-empty-selection-escape";
+import noEmptySelectionEscapeTypeChecked from "./no-empty-selection-escape-type-checked";
 import preferLockedAccessWrapper from "./prefer-locked-access-wrapper";
 import preferLockedAccessWrapperTypeChecked from "./prefer-locked-access-wrapper-type-checked";
 import preferUndoString from "./prefer-undo-string";
@@ -46,6 +47,7 @@ export const typeCheckedRules = {
   "no-async-in-locked-access-type-checked": noAsyncInLockedAccessTypeChecked,
   "no-async-in-execute-transaction-type-checked": noAsyncInExecuteTransactionTypeChecked,
   "no-async-in-empty-selection-type-checked": noAsyncInEmptySelectionTypeChecked,
+  "no-empty-selection-escape-type-checked": noEmptySelectionEscapeTypeChecked,
   "prefer-locked-access-wrapper-type-checked": preferLockedAccessWrapperTypeChecked,
   "prefer-undo-string-type-checked": preferUndoStringTypeChecked,
   "require-execute-transaction-type-checked": requireExecuteTransactionTypeChecked,

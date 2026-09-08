@@ -60,6 +60,7 @@ const recommendedTypeCheckedConfig = {
     "@adobe/premierepro/no-async-in-locked-access-type-checked": "error",
     "@adobe/premierepro/no-async-in-execute-transaction-type-checked": "error",
     "@adobe/premierepro/no-async-in-empty-selection-type-checked": "error",
+    "@adobe/premierepro/no-empty-selection-escape-type-checked": "error",
     "@adobe/premierepro/prefer-locked-access-wrapper-type-checked": "warn",
     "@adobe/premierepro/prefer-undo-string-type-checked": "warn",
     "@adobe/premierepro/require-execute-transaction-type-checked": "error",
