@@ -1,5 +1,19 @@
 # Changelog
 
+## 26.5.0 (2026-09-08)
+
+### Miscellaneous Chores
+
+* chore: release 26.5.0-beta.73 (#26) ([7cd4e02](https://github.com/adobe/eslint-plugin-premierepro/commit/7cd4e02c72cfcc5b4faf40f01c0a92871c653abd))
+* chore: release 26.5.0-beta.71 (#25) ([787855a](https://github.com/adobe/eslint-plugin-premierepro/commit/787855a16afb06773db57977829d5d340e7a6f84))
+* chore: release 26.5.0-beta.61 (#24) ([ac6f658](https://github.com/adobe/eslint-plugin-premierepro/commit/ac6f6585ee509175a5e90896197f2fd5484bb445))
+* chore: release 26.5.0-beta.59 (#23) ([baf3be9](https://github.com/adobe/eslint-plugin-premierepro/commit/baf3be91228dad77f5d62ff9c1d509e2ffc195d9))
+* chore: release 26.5.0-beta.29 (#22) ([2248ac1](https://github.com/adobe/eslint-plugin-premierepro/commit/2248ac1da2c0a6e568e631b8f9a4e0ce9b277203))
+* chore: release 26.5.0-beta.8 (#21) ([0ee262a](https://github.com/adobe/eslint-plugin-premierepro/commit/0ee262a51cc0a8afa90e448caecb8572b582dd08))
+* chore: release 26.5.0-beta.7 (#20) ([fa8bd17](https://github.com/adobe/eslint-plugin-premierepro/commit/fa8bd176f28bbc95ce8a2ca8c4fa4e61acad279b))
+* chore: release 26.5.0-beta.3 (#19) ([9600902](https://github.com/adobe/eslint-plugin-premierepro/commit/96009026fcda441611f88f5228fd9bf747500d5b))
+* chore: begin 26.5.0-beta.0 cycle (#18) ([57265f2](https://github.com/adobe/eslint-plugin-premierepro/commit/57265f266fcf25d1793a718080c653376b1afaba))
+
 ## 26.5.0-beta.73 (2026-07-27)
 
 No notable changes.
