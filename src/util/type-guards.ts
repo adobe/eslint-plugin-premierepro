@@ -58,3 +58,7 @@ export function isCompoundActionType(type: ts.Type): boolean {
 export function isProjectType(type: ts.Type): boolean {
   return isPremiereProType(type, "Project");
 }
+
+export function isTrackItemSelectionStaticType(type: ts.Type): boolean {
+  return isPremiereProType(type, "TrackItemSelectionStatic");
+}
