@@ -1,5 +1,9 @@
 # Changelog
 
+## 27.0.0-beta.28 (2026-09-15)
+
+No notable changes.
+
 ## 27.0.0-beta.22 (2026-09-15)
 
 ### Features
