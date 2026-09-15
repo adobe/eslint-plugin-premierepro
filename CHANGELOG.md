@@ -1,5 +1,15 @@
 # Changelog
 
+## 27.0.0-beta.22 (2026-09-15)
+
+### Features
+
+* feat: Add rules for TrackItemSelection.createEmptySelection callback use (#29) ([558e852](https://github.com/adobe/eslint-plugin-premierepro/commit/558e852b01452b0cc4379ce20a739df86bce57e3))
+
+### Miscellaneous Chores
+
+* chore: begin 27.0.0-beta.0 cycle (#28) ([c8044c4](https://github.com/adobe/eslint-plugin-premierepro/commit/c8044c4e981b080854a4119eb399ba1e7dfa3ab5))
+
 ## 26.5.0 (2026-09-08)
 
 ### Miscellaneous Chores
