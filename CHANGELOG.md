@@ -1,5 +1,11 @@
 # Changelog
 
+## 27.1.0-beta.7 (2026-11-05)
+
+### Miscellaneous Chores
+
+* chore: begin 27.1.0-beta.0 cycle (#37) ([de7c6a6](https://github.com/adobe/eslint-plugin-premierepro/commit/de7c6a6e9cb76684cfcf580477b9a160fcfd6e19))
+
 ## 27.0.0 (2026-11-05)
 
 ### Features
