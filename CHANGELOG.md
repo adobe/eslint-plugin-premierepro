@@ -1,5 +1,21 @@
 # Changelog
 
+## 27.0.0 (2026-11-05)
+
+### Features
+
+* feat: Add rules for TrackItemSelection.createEmptySelection callback use (#29) ([558e852](https://github.com/adobe/eslint-plugin-premierepro/commit/558e852b01452b0cc4379ce20a739df86bce57e3))
+
+### Miscellaneous Chores
+
+* chore: release 27.0.0-beta.57 (#35) ([6e26cd9](https://github.com/adobe/eslint-plugin-premierepro/commit/6e26cd9d3da539d1cbf1057b219be1d9c50de40e))
+* chore: release 27.0.0-beta.56 (#34) ([91a68e6](https://github.com/adobe/eslint-plugin-premierepro/commit/91a68e6cbe8d248a64de4be22e20f170fbb83dc0))
+* chore: release 27.0.0-beta.51 (#33) ([5d156f7](https://github.com/adobe/eslint-plugin-premierepro/commit/5d156f7762adefad4a300bbb7ef4cb59bd8e0293))
+* chore: release 27.0.0-beta.37 (#32) ([a7f46e7](https://github.com/adobe/eslint-plugin-premierepro/commit/a7f46e761d2f531f93b455c4ee7a16ae5d437e76))
+* chore: release 27.0.0-beta.28 (#31) ([0b4fbb9](https://github.com/adobe/eslint-plugin-premierepro/commit/0b4fbb98e98c4deabd4030b7974885ce88078e2d))
+* chore: release 27.0.0-beta.22 (#30) ([36f8365](https://github.com/adobe/eslint-plugin-premierepro/commit/36f8365414388e218cfa0d950252ca47f17ab01a))
+* chore: begin 27.0.0-beta.0 cycle (#28) ([c8044c4](https://github.com/adobe/eslint-plugin-premierepro/commit/c8044c4e981b080854a4119eb399ba1e7dfa3ab5))
+
 ## 27.0.0-beta.57 (2026-09-23)
 
 No notable changes.
