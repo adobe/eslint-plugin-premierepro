@@ -1,5 +1,9 @@
 # Changelog
 
+## 27.1.0-beta.23 (2026-11-12)
+
+No notable changes.
+
 ## 27.1.0-beta.16 (2026-11-06)
 
 No notable changes.
